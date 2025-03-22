@@ -1,7 +1,7 @@
 #:schema node_modules/wrangler/config-schema.json
 name = "gemini-playground"
 main = "src/index.js"
-compatibility_date = "2024-12-30"666
+compatibility_date = "2024-12-30"
 compatibility_flags = ["nodejs_compat"]
 assets = { directory = "./src/static" }
 
@@ -10,6 +10,12 @@ assets = { directory = "./src/static" }
 # Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
 [observability]
 enabled = true
+
+# 变量绑定。下面设置了 API_KEY 变量，
+# 注意：如果是敏感数据，建议使用 `wrangler secret put API_KEY` 命令来设置，而不是直接写在这里。
+[vars]
+API_KEY = "your_api_key_here"
+
 
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Worker, running it closer to your back-end infrastructure
